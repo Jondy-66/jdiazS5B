@@ -1,12 +1,16 @@
-﻿namespace jdiazS5B
+﻿using jdiazS5B.Utils;
+
+namespace jdiazS5B
 {
     public partial class App : Application
     {
-        public App()
+        public static PersonRepository personRepo;
+        public App(PersonRepository personRepository)
         {
             InitializeComponent();
 
-            MainPage = new AppShell();
+            MainPage = new Views.Principal();
+            personRepo = personRepository;
         }
     }
 }

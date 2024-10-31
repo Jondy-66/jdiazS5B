@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using jdiazS5B.Utils;
+using Microsoft.Extensions.Logging;
 
 namespace jdiazS5B
 {
@@ -14,6 +15,9 @@ namespace jdiazS5B
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
+
+            string dbPath = FileAccessHelper.GelLocalFilePath("dbpersona.db");
+            builder.Services.AddSingleton<PersonRepository>(s=>ActivatorUtilities.CreateInstance<PersonRepository>(s, dbPath));
 
 #if DEBUG
     		builder.Logging.AddDebug();
