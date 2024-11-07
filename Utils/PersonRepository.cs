@@ -33,16 +33,16 @@ namespace jdiazS5B.Utils
             {
                 Init();
                 if (string.IsNullOrEmpty(nombre))
+                {
                     throw new Exception("El nombre es requerido");
-
+                }
                 Persona person = new() { Name = nombre };
                 result = conn.Insert(person);
                 status = string.Format("Dato ingresado");
             }
             catch (Exception)
             {
-
-                status = string.Format("Error al ingresar ");
+                status = string.Format("Error al ingresar: ");
             }
         }
 

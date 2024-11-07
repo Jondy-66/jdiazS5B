@@ -85,7 +85,7 @@
                             </Entry>
 
                             <Button x:Name="btnModificar"
-                                    Text="Actualizar"
+                                    Text="Modificar"
                                     Grid.Column="3"
                                     Clicked="btnModificar_Clicked"
                                     Margin="0,5,0,5"
