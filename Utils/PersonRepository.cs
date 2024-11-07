@@ -26,16 +26,16 @@ namespace jdiazS5B.Utils
             conn.CreateTable<Persona>();
         }
 
-        public void AddNewPerson(string name)
+        public void AddNewPerson(string nombre)
         {
             int result = 0;
             try
             {
                 Init();
-                if (string.IsNullOrEmpty(name))
+                if (string.IsNullOrEmpty(nombre))
                     throw new Exception("El nombre es requerido");
 
-                Persona person = new() { Name = name };
+                Persona person = new() { Name = nombre };
                 result = conn.Insert(person);
                 status = string.Format("Dato ingresado");
             }

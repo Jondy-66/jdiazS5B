@@ -28,7 +28,11 @@
                     Text="Agregar persona"
                     Clicked="btnAdd_Clicked"
                     Grid.Row="0"
-                    Grid.Column="0"/>
+                    Grid.Column="0"
+                    HeightRequest="50"
+                    WidthRequest="350"
+                    CornerRadius="30"
+                    BackgroundColor="#035896"/>
 
             <Label x:Name="lblStatus"
                    TextColor="red"
@@ -39,7 +43,12 @@
                     Text="Listar personas"
                     Clicked="btnMostrar_Clicked"
                     Grid.Row="2"
-                    Grid.Column="0"/>
+                    Grid.Column="0"
+                    HeightRequest="50"
+                    WidthRequest="350"
+                    CornerRadius="30"
+                    BackgroundColor="#035896"
+                    />
 
             <CollectionView x:Name="listapersona"
                             Grid.Row="3"
@@ -80,7 +89,10 @@
                                     Grid.Column="3"
                                     Clicked="btnModificar_Clicked"
                                     Margin="0,5,0,5"
-                                    BackgroundColor="Blue"
+                                    HeightRequest="50"
+                                    WidthRequest="350"
+                                    CornerRadius="30"
+                                    BackgroundColor="#035896"
                                     IsVisible="{Binding Source={x:Reference chkSeleccion}, Path=IsChecked}">
                             </Button>
 
@@ -89,7 +101,10 @@
                                     Grid.Column="4"
                                     Clicked="btnEliminar_Clicked"
                                     Margin="0,5,0,5"
-                                    BackgroundColor="Cyan"
+                                    HeightRequest="50"
+                                    WidthRequest="350"
+                                    CornerRadius="30"
+                                    BackgroundColor="#035896"
                                     IsVisible="{Binding Source={x:Reference chkSeleccion}, Path=IsChecked}">
                             </Button>
                         </Grid>
