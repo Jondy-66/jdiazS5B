@@ -16,7 +16,7 @@ namespace jdiazS5B
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
 
-            string dbPath = FileAccessHelper.GelLocalFilePath("dbpersona.db");
+            string dbPath = FileAccessHelper.GetLocalFilePath("dbpersona.db");
             builder.Services.AddSingleton<PersonRepository>(s=>ActivatorUtilities.CreateInstance<PersonRepository>(s, dbPath));
 
 #if DEBUG

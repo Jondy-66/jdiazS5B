@@ -42,7 +42,7 @@ namespace jdiazS5B.Utils
             catch (Exception)
             {
 
-                status = string.Format("Error al ingresar");
+                status = string.Format("Error al ingresar ");
             }
         }
 
@@ -53,13 +53,70 @@ namespace jdiazS5B.Utils
                 Init();
                 return conn.Table<Persona>().ToList();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
 
-                status = string.Format("Error al listar");
+                status = string.Format("Error al listar ");
 
             }
             return new List<Persona>();
+        }
+
+        public bool ModificarRegistro(int id, string nombre)
+        {
+            try
+            {
+                Init();
+                if (string.IsNullOrWhiteSpace(nombre))
+                {
+                    status = "El nombre es requerido";
+                    return false;
+                }
+
+                Persona personaExistente = conn.Find<Persona>(id);
+                if (personaExistente == null)
+                {
+                    status = "No se encontró ningún registro";
+                    return false;
+                }
+                personaExistente.Name = nombre;
+                int result = conn.Update(personaExistente);
+
+                if (result > 0)
+                {
+                    status = "Registro modificado correctamente";
+                    return true;
+                }
+                else
+                {
+                    status = "No se realizó la modificación";
+                    return false;
+                }
+            }
+            catch (Exception)
+            {
+                status = string.Format("Error al modificar: ");
+                return false;
+            }
+        }
+        public void EliminarRegistro(int id)
+        {
+            int result = 0;
+            try
+            {
+                Init();
+                if (id == 0)
+                {
+                    throw new Exception("Seleccione el registro que desea eliminar");
+                }
+                Persona person = new() { Id = id };
+                result = conn.Delete(person);
+                status = string.Format("Registro eliminado exitosamente");
+            }
+            catch (Exception)
+            {
+                status = string.Format("Error al eliminar: ");
+            }
         }
     }
 }

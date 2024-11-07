@@ -8,7 +8,7 @@ namespace jdiazS5B.Utils
 {
     public class FileAccessHelper
     {
-        public string string GetLocalFilePath(string filename)
+        public static string GetLocalFilePath(string filename)
         {
             return System.IO.Path.Combine(FileSystem.AppDataDirectory, filename);
         }
